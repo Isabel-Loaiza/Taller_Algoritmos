@@ -12,38 +12,20 @@ namespace Ejercicio_8
     {
         public static void Main(String[] args)
         {
-            int cantidad;
-            double tasa, intereses;
-            Console.WriteLine("Digite la cantidad invertida: ");
-            try
-            {
-                cantidad = int.Parse(Console.ReadLine());
-            }catch (Exception)
-            {
-                Console.WriteLine("Por favor, ingrese la cantidad en nùmeros: ");
-                cantidad = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Digite la tasa de interes: ");
-            try
-            {
-                tasa = double.Parse(Console.ReadLine());
-            }catch (Exception)
-            {
-                Console.WriteLine("Por favor, ingrese la cantidad en nùmeros: ");
-                tasa = double.Parse(Console.ReadLine());
-            }
-            
-            intereses = cantidad * tasa;
+            double dineroBanco, interes, valor, reinversion;
+            Console.WriteLine("Digite cuanto dinero tiene en el banco: ");
+            dineroBanco = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite el valor del interes: ");
+            interes = double.Parse(Console.ReadLine());
+            valor = dineroBanco*(interes/100);
 
-            if (intereses > 7000)
+            if (valor<7000)
             {
-                Console.WriteLine("Los intereses ganados son $" + intereses + ", superan los $7000");
+                reinversion = valor + dineroBanco;
+                Console.WriteLine("Has reinvertido. Dinero total: "+reinversion);
+            }else{
+                Console.WriteLine("Dinero total: "+valor);
             }
-              else
-                  {
-                Console.WriteLine("Los intereses ganados son $" + intereses + ", no superan los $7000");
-                  }
-                Console.WriteLine("El saldo total en la cuenta es: " + (cantidad + intereses));
-                  }
         }
     }
+}

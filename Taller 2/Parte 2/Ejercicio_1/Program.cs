@@ -34,20 +34,27 @@ namespace Ejercicio_1
             String[] clave = { "01", "02" };
             Console.WriteLine("¿Qué clave desea elegir? 01 - 02");
             resp = int.Parse(Console.ReadLine());
-
+            string mensaje = "";
             if (resp == 01)
             {
                 descuento = precio * 0.1;
                 total = precio - descuento;
+                mensaje = "";
             }
-            else
+            else if (resp == 02)
             {
                 descuento = precio * 0.2;
                 total = precio - descuento;
+                mensaje = "";
+            }
+            else
+            {
+                total = 0;
+                mensaje = "\nNo digitó una clave por lo tanto no tiene descuento";
             }
 
             Console.WriteLine("");
-            Console.WriteLine("Nombre del artículo: " + nombre + "\nClave: " + resp + "\nPrecio: " + precio + "\nPrecio con descuento: " + total);
+            Console.WriteLine("Nombre del artículo: " + nombre + "\nClave: " + resp + "\nPrecio: " + precio + "\nPrecio con descuento: " + total + " " + mensaje);
         }
     }
 }

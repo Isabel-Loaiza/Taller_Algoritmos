@@ -12,7 +12,7 @@ namespace Ejercicio_20
     {
         static void Main(string[] args)
         {
-            double precioC;
+            double precioC, descuento;
             int cant;
 
             Console.WriteLine("Ingrese el precio de compra unitario del producto: ");
@@ -33,16 +33,22 @@ namespace Ejercicio_20
                 Console.WriteLine("Por favor, ingrese valores numèricos: ");
                 cant = int.Parse(Console.ReadLine());
             }
-            Console.WriteLine("¡¡El descuento que se le hace al producto es del 10%!!");
-            Console.WriteLine(" ");
-
-            Operaciones(precioC, cant);
+            Console.WriteLine("Ingrese el descuento: ");
+            try
+            {
+                descuento = (double.Parse(Console.ReadLine()))/100;
+            }catch (Exception)
+            {
+                Console.WriteLine("Por favor, Ingrese el descuento: ");
+                descuento = (double.Parse(Console.ReadLine()))/100;
+            }
+            Operaciones(precioC, cant, descuento);
 
             Console.ReadKey();
         }
-        static void Operaciones(double precioC, int cant)
+        static void Operaciones(double precioC, int cant, double descuento)
         {
-            double valor, cantiDes, descuentoValor, descuento = 0.1, montoIVA, Iva = 0.19, precioNeto;
+            double valor, cantiDes, descuentoValor, montoIVA, Iva = 0.19, precioNeto;
 
             valor = cant * precioC;
             cantiDes = valor * descuento;
