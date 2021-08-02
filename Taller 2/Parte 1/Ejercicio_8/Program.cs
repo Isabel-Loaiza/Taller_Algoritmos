@@ -14,9 +14,21 @@ namespace Ejercicio_8
         {
             double dineroBanco, interes, valor, reinversion;
             Console.WriteLine("Digite cuanto dinero tiene en el banco: ");
-            dineroBanco = double.Parse(Console.ReadLine());
+            try{
+                dineroBanco = double.Parse(Console.ReadLine());
+            }catch(Exception)
+            {
+                Console.WriteLine("Por favor, ingrese valores numèricos: ");
+                dineroBanco = double.Parse(Console.ReadLine());
+            }
             Console.WriteLine("Digite el valor del interes: ");
-            interes = double.Parse(Console.ReadLine());
+            try{
+                interes = double.Parse(Console.ReadLine());
+            }catch(Exception)
+            {
+               Console.WriteLine("Por favor, ingrese valores numèricos: ");
+               interes = double.Parse(Console.ReadLine());
+            }
             valor = dineroBanco*(interes/100);
 
             if (valor<7000)
